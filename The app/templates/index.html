@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Landing Page</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+
+<body>
+    <header>
+        <h1>Welcome to My Blog</h1>
+        <p>Your awesome tagline goes here</p>
+    </header>
+    <main>
+
+    </main>
+    <section>
+        <h1>Add new entry</h1>
+    </section>
+    <div>
+        <!-- Form for adding posts -->
+    <form action="/api/v1/posts/add" method="post">
+        <label for="title">Title:</label>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="content">Content:</label><br>
+        <textarea id="content" name="content" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="author">Author:</label>
+        <input type="text" id="author" name="author" required><br><br>
+
+        <label for="date_posted">Date Posted:</label>
+        <input type="text" id="date_posted" name="date_posted" required><br><br>
+
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+    <section>
+        <h2>recent posts</h2>
+        <article>
+            <div>
+                <h2>A bit of a chill day today</h2>
+                <time datetime="14-09-2023">Sep 14</time>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt optio totam facere ab consequuntur!</p>
+        </article>
+    </section>
+    <section>
+        <h2>Contact Us</h2>
+        <p>Provide contact information or a contact form.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Your Company</p>
+    </footer>
+</body>
+
+</html>
