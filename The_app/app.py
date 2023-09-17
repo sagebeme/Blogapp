@@ -5,7 +5,7 @@ This module initializes the Flask app and runs it.
 """
 
 from flask import Flask, render_template
-from api.v1.views.post_views import posts_bp
+from api.v1.views import app_views
 from db import init_db
 
 app = Flask(__name__)
@@ -13,7 +13,7 @@ app = Flask(__name__)
 init_db()
 
 # Register blueprints for API versions
-app.register_blueprint(posts_bp, url_prefix='/api/v1/posts')
+app.register_blueprint(app_views, url_prefix='/api/v1')
 
 @app.route('/')
 def home():
