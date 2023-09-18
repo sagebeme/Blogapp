@@ -32,7 +32,8 @@ def init_db():
             title TEXT,
             content TEXT,
             author TEXT,
-            date_posted TEXT
+            date_posted TEXT,
+            topic TEXT
         )
     ''')
 

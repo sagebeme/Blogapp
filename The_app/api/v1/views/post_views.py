@@ -18,6 +18,7 @@ def add_post():
 
     title = request.form.get('title')
     content = request.form.get('content')
+    topic = request.form.get('topic')
     #author = request.form.get('author')
     author = 'Dennis'
     date = datetime.now().date()
@@ -25,9 +26,9 @@ def add_post():
     date_posted = str(date) + '/' + str(year)
 
     cursor.execute('''
-        INSERT INTO posts (title, content, author, date_posted)
-        VALUES (?, ?, ?, ?)
-    ''', (title, content, author, date_posted))
+        INSERT INTO posts (title, content, author, date_posted, topic)
+        VALUES (?, ?, ?, ?, ?)
+    ''', (title, content, author, date_posted, topic))
 
     conn.commit()
     conn.close()
