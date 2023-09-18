@@ -24,5 +24,22 @@ def home():
 # end def
 
 
+@app.route('/register')
+def register():
+    """
+    Purpose: register form
+    """
+    return render_template('register.html')
+# end def
+
+
+@app.route('/login')
+def login():
+    """
+    Purpose: login page
+    """
+    return render_template('login.html')
+# end def
+
 if __name__ == '__main__':
     app.run(debug=True)

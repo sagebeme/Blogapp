@@ -5,8 +5,8 @@ This module provides routes and views for creating, updating, deleting, and disp
 """
 
 from flask import Blueprint, jsonify, request
-from The_app.db.storage import get_db_connection
-from The_app.api.v1.views import app_views
+from db.storage import get_db_connection
+from api.v1.views import app_views
 
 #posts_bp = Blueprint('posts', __name__)
 
