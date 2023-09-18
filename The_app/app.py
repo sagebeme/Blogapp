@@ -4,11 +4,13 @@ Main application entry point.
 This module initializes the Flask app and runs it.
 """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, url_for, session
 from api.v1.views import app_views
 from db import init_db
 
 app = Flask(__name__)
+
+app.secret_key = 'Blog_app'
 
 init_db()
 
@@ -40,6 +42,14 @@ def login():
     """
     return render_template('login.html')
 # end def
+
+@app.route('/posts')
+def posts():
+    print(session)
+    if session.get('logged-in') is True:
+        return render_template('posts.html')
+    else:
+        return render_template('login.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

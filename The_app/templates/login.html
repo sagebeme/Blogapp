@@ -7,17 +7,18 @@
 </head>
 <body>
   <header>
-    <h1>Login</h1>
+    <p>My blog</p>
   </header>
   <main>
-    <form action="login.php" method="post">
+    <form action="http://127.0.0.1:5000/api/v1/login_view" method="post">
       <input type="text" name="username" placeholder="Username">
       <input type="password" name="password" placeholder="Password">
       <input type="submit" value="Login">
+      <p>Don't have an account? <a href="/register">Register</a></p>
     </form>
   </main>
   <footer>
-    <p>Don't have an account? <a href="/register">Register</a></p>
+    <p>&copy; 2023 Your Company</p>
   </footer>
 </body>
 </html>

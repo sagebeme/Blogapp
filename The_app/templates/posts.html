@@ -1,11 +1,68 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h1>hello, {{ name }}</h1>
-    <p>This is an introduction to the {{ blog }}</p>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>My posts</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+	</head>
+	<body>
+	<header><p>My Blog</p></header>
+	<main>
+		<section style="display: flex; align-items: center; justify-content: center; flex-direction: column">
+		        <h2>Hello, Dennis</h2>
+			<p><a href="#" id="showForm">Add new entry</a></p>
+		</section>
+		<div id="post_form">
+			<!-- Form for adding posts -->
+			<form action="/api/v1/add" method="post">
+				<label for="topic">Topic:</label><br>
+				<input type="text" id="topic" name="topic" required><br><br>
+
+				<label for="title">Title:</label>
+				<input type="text" id="title" name="title" required><br><br>
+
+				<label for="content">Content:</label><br>
+				<textarea id="content" name="content" rows="6" cols="50" required></textarea><br><br>
+
+
+                                <!--
+				<label for="author">Author:</label>
+				<input type="text" id="author" name="author" required><br><br>
+
+				<label for="date_posted">Date Posted:</label>
+				<input type="text" id="date_posted" name="date_posted" required><br><br>
+				-->
+
+				<input type="submit" value="Submit">
+			</form>
+			<script>
+			    document.getElementById('showForm').addEventListener('click', function() {
+			        const form = document.getElementById('post_form');
+				if (form.style.display === 'none' || form.style.display === '') {
+				    form.style.display = 'block';
+				} else {
+				    form.style.display = 'none';
+				}
+			    });
+			</script>
+		</div>
+		<section class="recent_posts">
+			<h2>Recent posts</h2>
+			<article>
+				<div>
+					<h4>A bit of a chill day today</h4>
+					<time datetime="14-09-2023">Sep 14</time>
+				</div>
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt optio totam facere ab consequuntur!</p>
+			</article>
+		</section>
+		<section class="contact-us">
+			<h5>Contact Us</h5>
+			<p>Provide contact information or a contact form.</p>
+		</section>
+	</main>
+		<footer>
+			<p>&copy; 2023 Your Company</p>
+		</footer>
+	</body>
 </html>
