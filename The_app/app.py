@@ -6,14 +6,16 @@ This module initializes the Flask app and runs it.
 
 from flask import Flask, render_template
 from api.v1.views import app_views
-from db import init_db
+from db.storage import init_user, init_post
 
 app = Flask(__name__)
 
-init_db()
 
 # Register blueprints for API versions
 app.register_blueprint(app_views, url_prefix='/api/v1')
+
+init_user()
+init_post()
 
 @app.route('/')
 def home():
@@ -39,7 +41,6 @@ def login():
     Purpose: login page
     """
     return render_template('login.html')
-# end def
 
 if __name__ == '__main__':
     app.run(debug=True)

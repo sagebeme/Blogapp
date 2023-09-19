@@ -15,15 +15,16 @@ def add_post():
     conn = get_db_connection()
     cursor = conn.cursor()
 
+    topic = request.form.get('topic')
     title = request.form.get('title')
     content = request.form.get('content')
-    author = request.form.get('author')
+
     date_posted = request.form.get('date_posted')  # You might want to generate this automatically
 
     cursor.execute('''
-        INSERT INTO posts (title, content, author, date_posted)
+        INSERT INTO posts (topic, title, content, date)
         VALUES (?, ?, ?, ?)
-    ''', (title, content, author, date_posted))
+    ''', (topic,title, content, date_posted))
 
     conn.commit()
     conn.close()

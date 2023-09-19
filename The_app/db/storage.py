@@ -4,37 +4,54 @@ Module for handling database operations.
 This module provides functions for initializing the database and establishing connections.
 """
 
+from models.basemodel import Base
 import sqlite3
-
 
 def get_db_connection():
     """
-    Establishes a connection to the SQLite database.
-
-    Returns:
-        sqlite3.Connection: A connection to the database.
+    Purpose: one
     """
     conn = sqlite3.connect('blog.db')
     conn.row_factory = sqlite3.Row
     return conn
 
 
-def init_db():
+def init_user():
     """
-    Initializes the database by creating necessary tables if they don't exist.
+    Purpose: 
     """
     conn = get_db_connection()
     cursor = conn.cursor()
 
-    cursor.execute('''
-        CREATE TABLE IF NOT EXISTS posts (
-            id INTEGER PRIMARY KEY,
-            title TEXT,
-            content TEXT,
-            author TEXT,
-            date_posted TEXT
-        )
-    ''')
+    cursor.execute(
+        '''
+        CREATE TABLE IF NOT EXISTS user (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            username VARCHAR NOT NULL,
+            email VARCHAR NOT NULL,
+            password VARCHAR NOT NULL,
+            post_id INTEGER,
+            Foreign Key (post_id) REFERENCES posts(id)
+        );
+        '''
+    )
 
-    conn.commit()
-    conn.close()
+
+def init_post():
+    """
+    Purpose: 
+    """
+    conn = get_db_connection()
+    cursor = conn.cursor()
+
+    cursor.execute(
+        '''
+        CREATE TABLE IF NOT EXISTS posts (
+            id INTEGER PRIMARY KEY AUTOINCREMENT,
+            date TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+            title TEXT NOT NULL,
+            content TEXT NOT NULL,
+            topic VARCHAR NOT NULL
+        );
+        '''
+    )

@@ -22,7 +22,10 @@
     </section>
     <div>
         <!-- Form for adding posts -->
-    <form action="/api/v1/posts/add" method="post">
+    <form action="/api/v1/add" method="post">
+        <label for="title">Topic:</label>
+        <input type="text" id="title" name="topic" required><br><br>
+
         <label for="title">Title:</label>
         <input type="text" id="title" name="title" required><br><br>
 
@@ -33,7 +36,7 @@
         <input type="text" id="author" name="author" required><br><br>
 
         <label for="date_posted">Date Posted:</label>
-        <input type="text" id="date_posted" name="date_posted" required><br><br>
+        <input type="date" id="date_posted" name="date_posted" required><br><br>
 
         <input type="submit" value="Submit">
     </form>
