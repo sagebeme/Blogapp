@@ -26,7 +26,7 @@ def login_user():
     user_dict["id"]= user[0]
     user_dict["email"]= user[1]
     user_dict["password"]= user[2]
-    user_dict["usename"]= user[3]
+    user_dict["username"]= user[3]
     user_dict["post_id"]= user[4]
 
     conn.commit()
