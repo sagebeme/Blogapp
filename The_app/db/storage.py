@@ -18,7 +18,7 @@ def get_db_connection():
 
 def init_user():
     """
-    Purpose: 
+    Purpose: initializes the users
     """
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -39,7 +39,7 @@ def init_user():
 
 def init_post():
     """
-    Purpose: 
+    Purpose: initializes the posts
     """
     conn = get_db_connection()
     cursor = conn.cursor()
