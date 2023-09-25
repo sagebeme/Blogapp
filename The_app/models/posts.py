@@ -1,5 +1,5 @@
 from models.basemodel import BaseModel, Base
-from sqlalchemy import Column, ForeignKey, String, Integer, Text, DateTime, Boolean, Enum as SQLAlchemyEnum
+from sqlalchemy import Column, ForeignKey, String, Integer, Text, DateTime
 from sqlalchemy.orm import relationship
 
 
@@ -10,6 +10,8 @@ class Post(Base):
     content = Column(Text)
     author_id = Column(Integer, ForeignKey('users.id'))  # ForeignKey referencing User.id
     date_posted = Column(DateTime)
+
+    author = relationship('User', back_populates='posts')
 
     def __init__(self, *args, **kwags):
         """

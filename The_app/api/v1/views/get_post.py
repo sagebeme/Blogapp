@@ -5,7 +5,7 @@ from api.v1.views import app_views
 @app_views.route('/get_posts/<string:topic>', methods=['GET'])
 def get_post(topic):
     """
-    Purpose: 
+    Purpose:
     """
     conn = get_db_connection()
     cursor = conn.cursor()
@@ -25,7 +25,7 @@ def get_post(topic):
         Dict['content'] = row[3]
         Dict['topic'] = row[4]
         data.append(Dict)
-    
+
     conn.close()
     return jsonify(data), 200
 # end def
