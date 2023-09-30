@@ -1,4 +1,4 @@
-from flask import Blueprint, flash, render_template, redirect, request, url_for
+from flask import Blueprint, flash, render_template, redirect, request, url_for, session
 from flask_login import login_user, current_user, logout_user, login_required
 
 from schoolblog.models import User, Blog
@@ -53,6 +53,10 @@ def login():
             if next == None or not next[0]=='/':
                 next = url_for('core.index')
 
+            #storing user id in a session
+            session['user_id'] = user.id
+
+
             return redirect(next)
 
     return render_template('login.html', form=form)
@@ -66,6 +70,7 @@ def logout():
     Purpose: log out user
     """
     logout_user()
+    session.clear()
     return redirect(url_for("core.index"))
 
 
@@ -76,6 +81,9 @@ def account():
     """
     Purpose: gets user data and updates it
     """
+    user_id = session.get('user_id')
+
+    user = User.query.get(user_id)
 
     form = UpdateUserForm()
     if form.validate_on_submit():
