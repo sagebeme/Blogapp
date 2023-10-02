@@ -6,7 +6,7 @@ import LandingPage from "./landingpage";
 const Header = () => {
   return (
     <header>
-      <h1>Blog Hub</h1>
+      <h1>Education Blog</h1>
       <nav>
         <Link to="/">Home</Link> {LandingPage}
         <Link to="/register">Register</Link>

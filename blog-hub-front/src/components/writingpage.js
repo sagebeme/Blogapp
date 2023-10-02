@@ -15,7 +15,6 @@ const AddNewEntry = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      
       <input
         type="text"
         placeholder="Topic"

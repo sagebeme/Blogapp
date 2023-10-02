@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./landingpage.css"; 
+import "./landingpage.css";
 
 const LandingPage = () => {
   return (
     <div className="landing-page">
       <header>
-        <h1>Welcome to Blog Hub</h1>
+        <h1>Welcome to Education Blog</h1>
         <p>Your Destination for Writing and Sharing Articles</p>
       </header>
       <section className="cta-section">
@@ -20,15 +20,13 @@ const LandingPage = () => {
         <h2>Features</h2>
         <ul>
           <li>Easy-to-use article editor</li>
-          <li>Connect with other writers</li>
           <li>Explore a wide range of topics</li>
-          <li>Get feedback and improve your writing</li>
         </ul>
       </section>
       <section className="about-section">
         <h2>About Us</h2>
         <p>
-          Blog Hub is a platform designed for writers of all levels to create, share, and discover articles. Whether you're a seasoned author or just starting your writing journey, Blog Hub provides the tools and community you need to succeed.
+          Blog Hub is a platform designed for people of all levels to create, share, and discover articles. Whether you're a seasoned author or just starting, Education Blog provides the tools and community you need to succeed.
         </p>
       </section>
       <footer>
